@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+<!--Total Stock-->
+        <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Transaksi Jual-Beli</h1>
+           <h6><strong style="color:red;">Pastikan anda telah memeriksa barang yang akan dibeli sesuai dengan permintaan</strong></h6>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Form Transaksi Jual-Beli</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+
+               <form method="post" enctype="application/x-www-form-urlencoded">
+                  {% csrf_token %}
+                  <div class="container">
+                  <table id="myTable" class=" table order-list">
+                  <thead>
+                      <tr class="table-secondary">
+                          <td>Name</td>
+                          <td>Quantity</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                     <div>
+                           {{forms.management_form}}
+                           {% for form in forms %}
+                              <tr id="mainForm">
+                                 <td class="col-sm-3">
+                                     <select name=form-0-{{form.nama_barang.name}}>
+                                        {% for nama_product in data_barang %}
+                                           <option value="{{ nama_product.nomor }}">{{nama_product}}</option>
+                                        {% endfor %}
+                                     </select>
+                                 </td>
+                                 <td class="col-sm-4">{{ form.quantity }}</td>
+                                 <!--<td class="col-sm-4">{{ form.subtotal }}</td>-->
+                                 <input value="{{request_user}}" type="hidden" name="form-0-{{form.user.name}}">
+                                 <td class="col-sm-2"><a class="deleteRow"></a></td>
+                              </tr>
+                           {%endfor%}
+                     </div>
+                  </tbody>
+                  <tfoot id="AdderTransactionForm" class="adderForm">
+                       <tr id="EmptyForm" style="display:none">
+                              <td class="col-sm-3">
+                                 <select name="form-__prefix__-nama_barang" id="id_form-__prefix__-nama_barang">
+                                    {% for nama_product in data_barang %}
+                                       <option value="{{ nama_product.nomor }}">{{nama_product}}</option>
+                                    {% endfor %}
+                                 </select>
+                              </td>
+                              <td class="col-sm-4">{{forms.empty_form.quantity}}</td>
+                              <input value="{{request_user}}" type="hidden" name="form-__prefix__-user" id="id_form-__prefix__-user">
+                              <td> <button id="btnDelete" class="btn btn-outline-primary btn-sm">Hapus</button></td>
+                       </tr>
+                  </tfoot>
+              </table>
+                      <input type="button" class="btn btn-outline-info btn-sm" id="transactionAdderForm" value="Tambah Barang" />
+              </div>
+                  <div>
+                     <br>
+                     <button class="btn btn-outline-primary btn-sm" type="submit">Bayar</button>
+                  </div>
+                </form>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+{% endblock %}

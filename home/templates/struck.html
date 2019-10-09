@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Nota Pembelian</h1>
+           <p style="color:red;"><b>Pastikan Printer anda sudah terhubung jika ingin melakukan cetak struck pembelian.</b></p>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Struck Print</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="table-success">
+<!--                      <th>Nomor</th>-->
+                      <th>Nama Barang</th>
+                      <th>Jumlah Barang</th>
+                      <th>Jumlah Harga</th>
+                    </tr>
+                  </thead>
+                     Nomor Nota: {{dataStruck.nomor}}<br>
+                     Nama Kasir: <b style="color:black;">{{dataUser.nama_depan}} {{dataUser.nama_belakang}}</b> <br>
+                     E-mail: <i><u>{{dataUser.email}}</u></i><br>
+                     Tanggal & Bulan : <b>{{dataStruck.created}}</b>
+                  <tbody>
+                        {%for produk in dataStruckListProduk%}
+                             <tr>
+                                    <td>{{produk.nama_barang}}</td><br>
+                                    <td>{{produk.quantity}}</td>
+                                    <td><b style="color:black;">Rp. {{produk.subtotal|intcomma}}</b></td>
+                             </tr>
+                        {%endfor%}
+                  </tbody>
+                   <tfoot>
+                     <tr>
+                         <td colspan="2"><b style="color:black;">TOTAL</b></td>
+                         <td><b style="color:red;">Rp. {{dataStruck.total|intcomma}}</b></td>
+                     </tr>
+                   </tfoot>
+                </table>
+              </div>
+                <button type="button" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i>  Print Struck</button>
+            </div>
+          </div>
+        </div>
+{% endblock %}

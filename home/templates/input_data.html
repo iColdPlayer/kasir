@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+<!--Total Stock-->
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Stock Input</h1>
+     <h6><strong style="color:red;">Pastikan anda telah memeriksa barang yang datang sesuai dengan nota anda</strong></h6>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header md-3">
+        <h6 class="m-0 font-weight-bold text-primary">Form Input Stock</h6>
+      </div>
+      <div class="card-body md-4">
+        <div class="table-responsive">
+
+             <form method="post" enctype="application/x-www-form-urlencoded">
+
+                <!--Removing Search Field-->
+                    <table class="table table-bordered" id="inputDataTable">
+                    {% csrf_token %}
+
+                     <div class="form-row">
+                         <thead>
+                           <tr class="table-secondary">
+                             <th scope="col">Nama Barang</th>
+                             <th scope="col">Jumlah</th>
+                             <!--<th>Unit</th>-->
+                             <th scope="col">Harga Satuan</th>
+                    <!--                               <th>Total Beli Satuan</th>-->
+                             <th scope="col">Laba Persen</th>
+                    <!--                         <th scope="col">Option</th>-->
+                           </tr>
+                         </thead>
+                               <tbody id = table-stock>
+                                {{forms.management_form}}
+                                  {% for form in forms %}
+                                  <tr id="mainForm">
+                                     <td>
+                                        <select name="form-0-{{form.nama_product.name}}"  id="id_form-0-nama_product">
+                                           {% for stock in stocks %}
+                                              <option value="{{ stock.name }}">{{stock}}</option>
+                                           {% endfor %}
+                                        </select>
+                                     </td>
+                                     <td>{{form.jumlah_produk}}</td>
+                                     <td>{{form.harga_beli_satuan}}</td>
+                                     <td>{{form.laba_persen}}</td>
+
+                                      <input value="{{request_user}}" type="hidden" name="form-0-{{form.user.name}}">
+                                  </tr>
+                                  {%endfor%}
+                               </tbody>
+                               <tfoot id="copiedForm">
+                                 <tr id="EmptyForm" style="display:none">
+                                        <td>
+                                        <select name="form-__prefix__-nama_product" id="id_form-__prefix__-nama_product">
+                                           {% for stock in stocks %}
+                                              <option value="{{ stock }}">{{stock}}</option>
+                                           {% endfor %}
+                                        </select>
+                                        </td>
+                                        <td>{{forms.empty_form.jumlah_produk}}</td>
+                                        <td>{{forms.empty_form.harga_beli_satuan}}</td>
+                                        <td>{{forms.empty_form.laba_persen}}</td>
+                                        <input value="{{request_user}}" type="hidden" name="form-__prefix__-user" id="id_form-__prefix__-user">
+                                        <td> <button id="btnDelete" class="btn btn-outline-primary btn-sm">Hapus</button></td>
+                                 </tr>
+                               </tfoot>
+                         </div>
+                     </table>
+                    &nbsp; <input type="button" class="btn btn-outline-info btn-sm" id="inputStockAdder" value="Tambah Barang" />
+                <div>
+                   <br>
+                   <button class="btn btn-outline-primary btn-sm" type="submit">Simpan</button>
+                </div>
+                <!--Adding form-->
+
+             </form>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+{% endblock %}

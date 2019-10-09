@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% load static  %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<title>{% block title %} Accounts | CPM Cashier {% endblock %}</title>
+
+<!--Profile Picture-->
+<div class="container">
+    <div class="img-circle">
+        <center>
+            <img src="{{user.profile.picture.url}}" name="aboutme" class="img-circle">
+            <br>
+                <h3>Username : {{user.username}}</h3>
+            <br>
+            <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-outline-black btn-sm">Change Profile</a>
+        </center>
+    </div>
+</div>
+<br>
+
+<!--Account Info-->
+<div class="container emp-profile">
+            <form method="post">
+                    <div>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+<!--                                <li class="nav-item">-->
+<!--                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>-->
+<!--                                </li>-->
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{user.username}}</b></p>
+                                            </div>
+                                        </div>
+                                    {% for data_user in data_user %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nama Depan</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.nama_depan}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nama Belakang</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.nama_belakang}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>E-Mail</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.email}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Telephone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.nomor_telephone}}</b></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Provinsi</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.provinsi}}</b></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Kota</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.kota}}</b></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Kecamatan</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.kecamatan}}</b></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Kelurahan</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.kelurahan}}</b></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Alamat</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b>{{data_user.alamat}}</b></p>
+                                            </div>
+
+                                        </div>
+                                    {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <a class="modal-title" id="myModalLabel">
+                       <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cancel</button>
+                    </a>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="{{user.profile.picture.url}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading">{{user.username}}<small> | Greater area : Jakarta</small></h3>
+                    <span><strong>Section: </strong></span>
+                        <b>Akun Info</b>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Bio: </strong><br>
+                       <form method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            <fieldset class="form-group">
+                              <legend class="border-bottom mb-4">Profile Info</legend>
+                               {{ user_form|crispy }}
+                               {{ profile_form|crispy }}
+                            </fieldset>
+                            <div class="form-group">
+                              <button class="btn btn-outline-primary btn-sm" type="submit">Submit Change</button>
+                            </div>
+                       </form>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

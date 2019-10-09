@@ -1,0 +1,26 @@
+
+{% load humanize %}
+<div class="table-responsive" id="reportDataTable">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Nama Barang</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Tanggal & Hari</th>
+          <th>Jam</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for daftar_barang in daftar_barang %}
+            <tr>
+              <td>{{daftar_barang.nama_barang}}</td>
+              <td>{{daftar_barang.quantity}}</td>
+              <td>{{daftar_barang.subtotal|intcomma}}</td>
+              <td>{{daftar_barang.created|date}}</td>
+              <td>{{daftar_barang.created|date:"f a"}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>

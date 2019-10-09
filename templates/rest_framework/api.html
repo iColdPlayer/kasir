@@ -1,0 +1,10 @@
+{% extends "rest_framework/base.html" %}
+{% load i18n %}
+
+{% block title %}API CPM Cashier {% endblock %}
+{% block branding %}
+
+    <a class="navbar-brand" rel="nofollow" href="{% url 'ApiList' %}">
+        {% trans 'iColdPlayer' %}
+    </a>
+{% endblock %}
