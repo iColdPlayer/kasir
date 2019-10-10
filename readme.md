@@ -7,7 +7,7 @@
 
 
 
-You can also see the live demo [here](https://kasir.herokuapp.com). <br>
+You can also see the live demo [here](https://kasir.herokuapp.com). with user: `admin` & password: `demoadmin` <br>
 Read more the flowchart and the pattern models [here](/cashierModel.md)
 
 
