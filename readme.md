@@ -25,7 +25,7 @@ python -m venv env
 source env/bin/activate
 
 # Install the all the dependencies
-pip install requirements.txt
+pip install -r requirements.txt
 
 # Migrate 
 ./manage.py migrate
