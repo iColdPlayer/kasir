@@ -14,9 +14,9 @@ Read more the flowchart and the pattern models [here](/cashierModel.md)
 ### Installation:
 ```bash
 # Clone it
-git clone https://github.com/iColdPlayer/Cashier.git
+git clone https://github.com/iColdPlayer/kasir.git
 
-cd Cashier
+cd kasir
 
 # create your own Virtual Environment on you local machine
 python -m venv env
