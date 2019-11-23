@@ -60,10 +60,6 @@ List To Do:
 * [ ] Print Nota To PDF
 
 
-How to contribute?
-
-Fork it and feel free to open an issue or make a Pull Request.
-
 ---
 
 #### [MIT License](https://github.com/iColdPlayer/Cashier/blob/master/LICENSE)
