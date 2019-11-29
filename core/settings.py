@@ -15,10 +15,11 @@ import logging.config
 import django_heroku
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
-sentry_sdk.init(
-    dsn="https://bd393218f28a477386dd2d94ce99aba5@sentry.io/1533771",
-    integrations=[DjangoIntegration()]
-)
+
+# sentry_sdk.init(
+#     dsn="your_sentry_token",
+#     integrations=[DjangoIntegration()]
+# )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
