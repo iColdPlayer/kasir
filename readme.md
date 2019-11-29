@@ -48,10 +48,19 @@ Go to `/admin/data/stock`, you should be able to see the example data over there
 
 ### Production
 Please do not forget to `collectstatic` before you plan to use on production by running: <br>
-`./manage.py collectstatic`
+`./manage.py collectstatic` or your site won't be able to load the staticfiles.
+
+To make sure your staticfiles works correctly, you can running locally on your local machine with debug set to `False`
+by typing this: <br>
+`./manage.py runserver --insecure`
+
 
 If you plan to use on production, please do not forget to uncomment this line below in your `settings` 
 when `DEBUG = 0`.
+
+Check this option by running: <br>
+`./manage.py check --deploy`
+
 
 ```
 SECURE_SSL_REDIRECT = True
