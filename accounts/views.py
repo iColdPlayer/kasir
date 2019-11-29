@@ -19,12 +19,12 @@ def Register(request):
                 print(form.error_messages[msg])
 
             return render(request = request,
-                          template_name = "register.html",
+                          template_name = "accounts/register.html",
                           context={"form":form})
 
     form = SignUpForm
     return render(request = request,
-                  template_name = "register.html",
+                  template_name = "accounts/register.html",
                   context={"form":form})
 
 @login_required
@@ -51,7 +51,7 @@ def Account(request):
         'profile_form': profile_form,
         'data_user': data_user
     }
-    return render(request, 'account.html', context)
+    return render(request, 'accounts/account.html', context)
 
 
 

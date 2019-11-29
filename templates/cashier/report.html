@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+{% block extra_head_content  %}
+
+{{block.super}}
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+{% endblock %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Data Laporan</h1>
+          <p class="mb-4">Data laporan harian dan bulanan</p>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Laporan Penjualan</h6>
+            </div>
+
+              <!--Sort By Date and Mo   nth-->
+            <div class="d-flex p-4">
+                <input class="btn btn-outline-secondary" type="date" id="sortTableDataStart" name="dateData" placeholder="Input Sort"/>
+                <span>&nbsp; &nbsp; &nbsp;</span>
+                <input class="btn btn-outline-secondary" type="date" id="sortTableDataEnd" name="dateData" placeholder="Input Sort"/>
+                <span>&nbsp; &nbsp; &nbsp;</span>
+                <button class="btn btn-outline-success" type="submit" id=sortTable>Cari <i class="fas fa-search"></i></button>
+            </div>
+            <div class="card-body">
+              {% include "cashier/report_details.html" %}
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+      <script>
+        $(document).ready(function() {
+          $('#sortTable').on('click', function() {
+            if ($('#sortTableDataStart').val() != ''){
+                $.ajax({
+                    'method': 'GET',  // defaults to GET. Set POST if you like, but be aware of the CSRF token submission too!
+                    'url': "{% url 'ReportView'%}" , // submit to the same url
+                    'data': {startDate : $('#sortTableDataStart').val(),endDate : $('#sortTableDataEnd').val() },
+                    success: function(dataReturned) {
+                        $('#reportDataTable').replaceWith(dataReturned);
+                    },
+                });
+             }else{
+                alert('Tanggal Harus di isi')
+             }
+          });
+      });
+
+
+
+
+      </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+{% include "cashier/card.html" %}
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+  {% include "cashier/data_table.html" %}
+{% endblock %}

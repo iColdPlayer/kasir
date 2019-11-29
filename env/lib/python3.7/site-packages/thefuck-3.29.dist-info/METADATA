@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: thefuck
+Version: 3.29
+Summary: Magnificent app which corrects your previous console command
+Home-page: https://github.com/nvbn/thefuck
+Author: Vladimir Iakovlev
+Author-email: nvbn.rm@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: psutil
+Requires-Dist: colorama
+Requires-Dist: six
+Requires-Dist: decorator
+Requires-Dist: pyte
+Requires-Dist: backports.shutil-get-terminal-size ; python_version<"3.3"
+Requires-Dist: pathlib2 ; python_version<"3.4"
+Requires-Dist: win-unicode-console ; sys_platform=='win32'
+
+UNKNOWN
+
+

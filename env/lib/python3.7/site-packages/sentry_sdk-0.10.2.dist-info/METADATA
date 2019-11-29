@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: sentry-sdk
+Version: 0.10.2
+Summary: Python client for Sentry (https://getsentry.com)
+Home-page: https://github.com/getsentry/sentry-python
+Author: Sentry Team and Contributors
+Author-email: hello@getsentry.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: urllib3
+Requires-Dist: certifi
+Provides-Extra: bottle
+Requires-Dist: bottle (>=0.12.13) ; extra == 'bottle'
+Provides-Extra: falcon
+Requires-Dist: falcon (>=1.4) ; extra == 'falcon'
+Provides-Extra: flask
+Requires-Dist: flask (>=0.8) ; extra == 'flask'
+Requires-Dist: blinker (>=1.1) ; extra == 'flask'
+
+
+Sentry-Python - Sentry SDK for Python
+=====================================
+
+**Sentry-Python is an SDK for Sentry.** Check out `GitHub
+<https://github.com/getsentry/sentry-python>`_ to find out more.
+
+

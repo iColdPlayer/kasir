@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: meld3
+Version: 1.0.2
+Summary: meld3 is an HTML/XML templating engine.
+Home-page: https://github.com/supervisor/meld3
+Author: Chris McDonough
+Author-email: chrism@plope.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Text Processing :: Markup :: HTML
+
+UNKNOWN
+
+

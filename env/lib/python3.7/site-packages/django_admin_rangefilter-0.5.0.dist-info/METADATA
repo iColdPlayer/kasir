@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: django-admin-rangefilter
+Version: 0.5.0
+Summary: django-admin-rangefilter app, add the filter by a custom date range on the admin UI.
+Home-page: https://github.com/silentsokolov/django-admin-rangefilter
+Author: Dmitriy Sokolov
+Author-email: silentsokolov@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+
+.. image:: https://travis-ci.org/silentsokolov/django-admin-rangefilter.svg?branch=master
+   :target: https://travis-ci.org/silentsokolov/django-admin-rangefilter
+
+.. image:: https://codecov.io/gh/silentsokolov/django-admin-rangefilter/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/silentsokolov/django-admin-rangefilter
+
+django-admin-rangefilter
+========================
+
+django-admin-rangefilter app, add the filter by a custom date / datetime range on the admin UI.
+
+.. image:: https://raw.githubusercontent.com/silentsokolov/django-admin-rangefilter/master/docs/images/screenshot.png
+
+
+Requirements
+------------
+
+* Python 2.7+ or Python 3.4+
+* Django 1.8+
+
+
+Installation
+------------
+
+Use your favorite Python package manager to install the app from PyPI, e.g.
+
+Example:
+
+``pip install django-admin-rangefilter``
+
+
+Add ``rangefilter`` to ``INSTALLED_APPS``:
+
+Example:
+
+.. code:: python
+
+    INSTALLED_APPS = (
+        ...
+        'rangefilter',
+        ...
+    )
+
+
+Example usage
+-------------
+
+In admin
+~~~~~~~~
+
+.. code:: python
+
+    from django.contrib import admin
+    from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
+
+    from .models import Post
+
+
+    @admin.register(Post)
+    class PostAdmin(admin.ModelAdmin):
+        list_filter = (
+            ('created_at', DateRangeFilter), ('updated_at', DateTimeRangeFilter),
+        )
+
+
+Support Content-Security-Policy
+-------------------------------
+
+For Django 1.8+, if `django-csp <https://github.com/mozilla/django-csp>`_ is installed, nonces will be added to style and script tags.
+
+.. code:: python
+
+    INSTALLED_APPS = (
+        ...
+        'rangefilter',
+        'csp',
+        ...
+    )
+
+
