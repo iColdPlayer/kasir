@@ -30,15 +30,28 @@ source env/bin/activate
 # Install all the dependencies
 pip install -r requirements.txt
 
+# export your SECRET_KEY
+export SECRET_KEY='your_secret_key'
+
 # Migrate 
 ./manage.py migrate
 
 # Run it
 ./manage.py runserver
-
 ```
+And go to your `localhost:8000`, you should see the login page there. <br>
+You can also register as user at `localhost:8000/register`.
 
-If you're running in development mode `DEBUG=True`, Please do not forget to comment this line below:
+### Import & Export Data From Admin Page
+You can also export and import your stock from the admin page itself.
+Go to `/admin/data/stock`, you should be able to see the example data over there.
+
+### Production
+Please do not forget to `collectstatic` before you plan to use on production by running: <br>
+`./manage.py collectstatic`
+
+If you plan to use on production, please do not forget to uncomment this line below in your `settings` 
+when `DEBUG = 0`.
 
 ```
 SECURE_SSL_REDIRECT = True
@@ -62,6 +75,8 @@ List To Do:
 * [ ] Adding Language Support.
 * [ ] Print Nota To PDF
 
+
+Thank's for visiting and don't forget to give a star, create an issue or pull request.
 
 ---
 
