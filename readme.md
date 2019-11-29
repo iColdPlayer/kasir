@@ -36,6 +36,9 @@ export SECRET_KEY='your_secret_key'
 # Migrate 
 ./manage.py migrate
 
+# you can also create an admin for yourself (default username is admin, pass: admin)
+./manage.py createsuperuser
+
 # Run it
 ./manage.py runserver
 ```
