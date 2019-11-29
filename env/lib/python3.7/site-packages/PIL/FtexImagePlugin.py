@@ -53,8 +53,8 @@ Note: All data is stored in little-Endian (Intel) byte order.
 
 import struct
 from io import BytesIO
-from . import Image, ImageFile
 
+from . import Image, ImageFile
 
 MAGIC = b"FTEX"
 FORMAT_DXT1 = 0
@@ -87,10 +87,9 @@ class FtexImageFile(ImageFile.ImageFile):
             self.mode = "RGBA"
             self.tile = [("bcn", (0, 0) + self.size, 0, (1))]
         elif format == FORMAT_UNCOMPRESSED:
-            self.tile = [("raw", (0, 0) + self.size, 0, ('RGB', 0, 1))]
+            self.tile = [("raw", (0, 0) + self.size, 0, ("RGB", 0, 1))]
         else:
-            raise ValueError(
-                "Invalid texture compression format: %r" % (format))
+            raise ValueError("Invalid texture compression format: %r" % (format))
 
         self.fp.close()
         self.fp = BytesIO(data)

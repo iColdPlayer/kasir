@@ -17,9 +17,9 @@
 #
 
 
-from . import Image, TiffImagePlugin
-
 import olefile
+
+from . import Image, TiffImagePlugin
 
 # __version__ is deprecated and will be removed in a future version. Use
 # PIL.__version__ instead.
@@ -36,6 +36,7 @@ def _accept(prefix):
 
 ##
 # Image plugin for Microsoft's Image Composer file format.
+
 
 class MicImageFile(TiffImagePlugin.TiffImageFile):
 
