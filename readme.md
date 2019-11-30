@@ -81,12 +81,6 @@ CONN_MAX_AGE = 60
 
 The languange currently support for Indonesian only, other language coming soon.
 
-List To Do:
-
-* [ ] Adding Test.
-* [ ] Adding Language Support.
-* [ ] Print Nota To PDF
-
 
 Thank's for visiting and don't forget to give a star, create an issue or pull request.
 
