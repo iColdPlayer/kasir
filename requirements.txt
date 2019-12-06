@@ -10,7 +10,7 @@ decorator==4.4.0
 defusedxml==0.6.0
 diff-match-patch==20181111
 dj-database-url==0.5.0
-Django==2.2.7
+Django==2.2.8
 django-admin-rangefilter==0.5.0
 django-bootstrap4==0.0.8
 django-class==2019.4.13
