@@ -79,7 +79,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CONN_MAX_AGE = 60
 ```
 
-The languange currently support for Indonesian only, other language coming soon.
+The language currently support for Indonesian only, other language coming soon.
 
 
 Thank's for visiting and don't forget to give a star, create an issue or pull request.
