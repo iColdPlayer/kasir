@@ -44,7 +44,7 @@ pytz==2019.3
 PyYAML==5.1.1
 redis==3.3.6
 requests==2.22.0
-rsa==4.0
+rsa==4.1
 sentry-sdk==0.10.2
 six==1.12.0
 sqlparse==0.3.0
